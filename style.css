@@ -86,7 +86,7 @@
 
     .avatar{
       width:min(100%, 360px); aspect-ratio: 1; border-radius: 28px; border:1px solid var(--border);
-      background: radial-gradient(100% 100% at 30% 20%, rgba(255,255,255,.18), rgba(255,255,255,.04)), url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=600&auto=format&fit=crop') center/ cover no-repeat;
+      background: radial-gradient(100% 100% at 30% 20%, rgba(255,255,255,.18), rgba(255,255,255,.04)), url('https://files.catbox.moe/6n8n3q.jpeg') center/ cover no-repeat;
       box-shadow: var(--shadow); margin: 0 auto; position: relative; overflow:hidden;
       animation: float 6s ease-in-out infinite;
     }
@@ -166,3 +166,4 @@
     grid-template-columns: 1fr;
   }
 }
+
