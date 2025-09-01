@@ -1,0 +1,168 @@
+
+    /* =====================
+       CSS VARIABLES & RESET
+       ===================== */
+    :root{
+      --bg: #0b0f14;
+      --bg-2: #0f1520;
+      --text: #e7eef7;
+      --muted:#a4b3c2;
+      --accent: #6cf;
+      --accent-2:#b67cff;
+      --card: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 22px;
+    }
+    [data-theme="light"]{
+      --bg:#f7f9fc; --bg-2:#ffffff; --text:#111827; --muted:#4b5563; --accent:#0ea5e9; --accent-2:#8b5cf6; --card: rgba(17,24,39,.06); --border: rgba(17,24,39,.12); --shadow: 0 10px 24px rgba(17,24,39,.15);
+    }
+    *,*::before,*::after{ box-sizing: border-box;}
+    html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text); background: radial-gradient(1200px 800px at 10% 10%, #172133 0%, transparent 60%),
+                          radial-gradient(1000px 700px at 90% 20%, #1a1f33 0%, transparent 60%),
+                          radial-gradient(900px 900px at 50% 120%, #111827 0%, transparent 60%), var(--bg);
+      overflow-x:hidden;
+    }
+
+    /* Animated gradient mesh background */
+    .bg-blobs{
+      position: fixed; inset: -20vmax; filter: blur(40px); pointer-events:none; z-index:-1; opacity:.65;
+      background: conic-gradient(from 0deg, var(--accent), var(--accent-2), #30e0a1, var(--accent));
+      animation: spin 30s linear infinite;
+    }
+    .bg-blobs::after{
+      content:""; position:absolute; inset:0; background: radial-gradient(60vmax 60vmax at 10% 80%, rgba(255,255,255,.08), transparent 60%);
+      mix-blend-mode: overlay; animation: pulse 6s ease-in-out infinite;
+    }
+    @keyframes spin { to{ transform: rotate(360deg);} }
+    @keyframes pulse { 0%,100%{ opacity:.4 } 50%{ opacity:.8 } }
+
+    /* =====================
+       LAYOUT
+       ===================== */
+    header{
+      position: sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(10px);
+      background: color-mix(in oklab, var(--bg-2) 80%, transparent); border-bottom:1px solid var(--border);
+    }
+    .nav{ max-width:1100px; margin:auto; display:flex; align-items:center; gap:16px; padding:12px 20px;}
+    .brand{ font-weight:800; letter-spacing:.3px; display:flex; align-items:center; gap:10px; }
+    .brand .dot{ width:10px; height:10px; border-radius:999px; background: radial-gradient(circle at 30% 30%, #fff, var(--accent)); box-shadow:0 0 18px var(--accent); animation: floatY 3s ease-in-out infinite;}
+    @keyframes floatY{ 0%,100%{ transform: translateY(-2px)} 50%{ transform: translateY(3px)} }
+    .nav a{ color: var(--muted); text-decoration:none; padding:10px 12px; border-radius:12px; transition:.25s ease; }
+    .nav a:hover{ color: var(--text); background: var(--card); }
+    .nav-spacer{ flex:1 }
+    .btn{ border:1px solid var(--border); background: linear-gradient(180deg, color-mix(in oklab, var(--card) 70%, transparent), color-mix(in oklab, var(--card) 40%, transparent)); padding:10px 14px; border-radius: 999px; cursor:pointer; color:var(--text); box-shadow: var(--shadow); transition: transform .15s ease; }
+    .btn:active{ transform: translateY(1px) scale(.98); }
+
+    /* progress bar */
+    .progress{ position: fixed; top:0; left:0; height:3px; width:0%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); z-index:60; box-shadow:0 0 8px var(--accent);}
+
+    main{ max-width:1100px; margin: 0 auto; padding: 28px; }
+
+    /* =====================
+       HERO
+       ===================== */
+    .hero{ display:grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items:center; min-height: 78vh; }
+    .hero h1{ font-size: clamp(36px, 5.2vw, 72px); line-height:1.05; margin:0 0 10px; }
+    .shimmer{ background: linear-gradient(90deg, color-mix(in oklab, var(--text) 96%, transparent), color-mix(in oklab, var(--text) 70%, transparent), color-mix(in oklab, var(--text) 96%, transparent));
+      background-size: 200% 100%; -webkit-background-clip: text; background-clip:text; color: transparent; animation: shimmer 6s ease-in-out infinite; }
+    @keyframes shimmer{ 0%{ background-position: 200% 0 } 100%{ background-position: -200% 0 } }
+    .subtitle{ font-size: clamp(16px, 2.2vw, 22px); color: var(--muted); min-height: 1.6em; }
+
+    .hero-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:22px; }
+    .btn-ghost{ background:transparent; border:1px dashed var(--border); }
+
+    .hero-card{
+      position:relative; border:1px solid var(--border); border-radius: var(--radius);
+      padding: 22px; background: linear-gradient(180deg, color-mix(in oklab, var(--card) 70%, transparent), color-mix(in oklab, var(--card) 20%, transparent));
+      box-shadow: var(--shadow); overflow:hidden; transform-style: preserve-3d; perspective: 900px; transition: transform .35s ease;
+    }
+    .hero-card:hover{ transform: rotate3d(.4, .8, 0, 6deg) scale(1.01); }
+    .hero-card .badge{ display:inline-block; font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--border); background: color-mix(in oklab, var(--card) 60%, transparent); margin-bottom:10px; }
+
+    .avatar{
+      width:min(100%, 360px); aspect-ratio: 1; border-radius: 28px; border:1px solid var(--border);
+      background: radial-gradient(100% 100% at 30% 20%, rgba(255,255,255,.18), rgba(255,255,255,.04)), url('https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=600&auto=format&fit=crop') center/ cover no-repeat;
+      box-shadow: var(--shadow); margin: 0 auto; position: relative; overflow:hidden;
+      animation: float 6s ease-in-out infinite;
+    }
+    .avatar::after{
+      content:""; position:absolute; inset:0; background: radial-gradient(60% 60% at 70% 10%, rgba(255,255,255,.25), transparent 60%);
+      mix-blend-mode: screen; opacity:.6; animation: pulse 8s ease-in-out infinite;
+    }
+    @keyframes float{ 0%,100%{ transform: translateY(0) } 50%{ transform: translateY(-10px) } }
+
+    /* =====================
+       SECTIONS
+       ===================== */
+    section{ margin: 80px 0; }
+    .section-title{ font-size: clamp(22px, 3vw, 32px); margin: 0 0 16px; }
+    .section-desc{ color:var(--muted); margin: 0 0 22px; }
+
+    .grid{ display:grid; gap: 16px; }
+    .grid.cols-3{ grid-template-columns: repeat( auto-fit, minmax(260px, 1fr)); }
+
+    .card{
+      border:1px solid var(--border); border-radius: var(--radius); background: linear-gradient(180deg, color-mix(in oklab, var(--card) 70%, transparent), color-mix(in oklab, var(--card) 20%, transparent));
+      padding: 18px; box-shadow: var(--shadow); position: relative; overflow:hidden; isolation:isolate;
+    }
+    .card::before{
+      content:""; position:absolute; inset:-1px; border-radius: inherit; background: conic-gradient(from var(--a,0deg), transparent 0deg, color-mix(in oklab, var(--accent) 40%, transparent) 60deg, transparent 120deg);
+      filter: blur(16px); opacity:.7; z-index:-1; transition: .8s ease;
+    }
+    .card:hover::before{ --a: 360deg; }
+    .card h3{ margin: 0 0 8px; }
+    .pill{ display:inline-block; font-size:12px; padding: 4px 10px; border-radius: 999px; border:1px solid var(--border); background: color-mix(in oklab, var(--card) 60%, transparent); margin: 6px 6px 0 0; }
+
+    /* timeline */
+    .timeline{ position:relative; margin-left:14px; padding-left:18px; }
+    .timeline::before{ content:""; position:absolute; left:0; top:0; bottom:0; width:2px; background: linear-gradient(180deg, var(--accent), transparent 70%); border-radius: 2px; opacity:.6 }
+    .timeline .item{ position:relative; margin: 0 0 18px; }
+    .timeline .item::before{ content:""; position:absolute; left:-22px; top:.3em; width:10px; height:10px; border-radius:50%; background: radial-gradient(circle at 30% 30%, #fff, var(--accent)); box-shadow:0 0 12px var(--accent); }
+    .timeline .role{ font-weight:600 }
+    .timeline .sub{ color:var(--muted); font-size:14px; }
+
+    /* CONTACT */
+    .contact{ display:grid; grid-template-columns: 1.2fr .8fr; gap:16px; align-items:start; }
+    .input{ width:100%; padding: 12px 14px; border-radius: 14px; border:1px solid var(--border); background: color-mix(in oklab, var(--card) 70%, transparent); color:var(--text); outline:none; transition:.2s ease; }
+    .input:focus{ box-shadow:0 0 0 4px color-mix(in oklab, var(--accent) 30%, transparent); }
+
+    footer{ border-top:1px solid var(--border); padding: 28px; color:var(--muted); text-align:center; }
+
+    /* =====================
+       ANIMATIONS (on-scroll)
+       ===================== */
+    .reveal{ opacity:0; transform: translateY(24px) scale(.98); filter: blur(6px); transition: opacity .8s cubic-bezier(.2,.7,0,1), transform .8s cubic-bezier(.2,.7,0,1), filter .8s ease; }
+    .reveal.in-view{ opacity:1; transform: none; filter: none; }
+    .stagger > *{ opacity:0; transform: translateY(12px); }
+    .stagger.in-view > *{ animation: rise .8s cubic-bezier(.2,.7,0,1) forwards; }
+    .stagger.in-view > *:nth-child(1){ animation-delay:.05s }
+    .stagger.in-view > *:nth-child(2){ animation-delay:.15s }
+    .stagger.in-view > *:nth-child(3){ animation-delay:.25s }
+    .stagger.in-view > *:nth-child(4){ animation-delay:.35s }
+    .stagger.in-view > *:nth-child(5){ animation-delay:.45s }
+    @keyframes rise{ to{ opacity:1; transform:none } }
+
+    /* fancy underline for links */
+    .link{ position:relative; color:var(--text); text-decoration:none; }
+    .link::after{ content:""; position:absolute; left:0; bottom:-3px; height:2px; width:100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transform: scaleX(0); transform-origin:left; transition: transform .3s ease; box-shadow:0 0 6px var(--accent); }
+    .link:hover::after{ transform: scaleX(1); }
+
+    /* cursor blob */
+    .cursor-blob{ position: fixed; width: 26px; height:26px; border-radius:50%; pointer-events:none; z-index:70; mix-blend-mode: lighten; background: radial-gradient(circle at 30% 30%, #fff, var(--accent)); opacity:.7; transform: translate(-50%, -50%) scale(1); transition: transform .15s ease; filter: blur(1px); }
+    .cursor-blob.small{ transform: translate(-50%, -50%) scale(.55); }
+
+  /* responsive */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .contact {
+    grid-template-columns: 1fr;
+  }
+}
