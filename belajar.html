@@ -1,0 +1,147 @@
+<!-- ================= HTML (index.html) ================= -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio ayaka</title>
+  <meta name="description" content="Portofolio pribadi – tentang saya, pendidikan, dan profesi." />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <div class="bg-blobs" aria-hidden="true"></div>
+  <div class="cursor-blob" id="cursor"></div>
+
+  <header>
+    <nav class="nav">
+      <div class="brand"><span class="dot"></span> <span id="brandName">Arya Fadhill Prasetiyo</span></div>
+      <a href="#tentang">Tentang</a>
+      <a href="#sekolah">Sekolah</a>
+      <a href="#profesi">Profesi</a>
+      <a href="#kontak">Kontak</a>
+      <div class="nav-spacer"></div>
+      <button class="btn" id="themeBtn" aria-label="Ganti tema">🌓 Tema</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="shimmer">Halo, saya <span contenteditable="true" id="nama">Arya</span> </h1>
+        <div class="subtitle" id="typing" aria-live="polite"></div>
+        <div class="hero-cta">
+          <a class="btn link" href="#profesi">Lihat Profesi</a>
+          <a class="btn btn-ghost link" href="#sekolah">Riwayat Sekolah</a>
+        </div>
+        <div class="hero-card reveal" style="margin-top:22px">
+          <div class="badge">Ringkasan</div>
+          <p>Saya seorang <b contenteditable="true">mahasiswa</b> yang tertarik pada <b contenteditable="true">CinematoGraphy/PhotoGraphy</b>. Berfokus pada <b contenteditable="true">Photography</b> dan selalu belajar hal baru.</p>
+          <div style="margin-top:8px">
+            <span class="pill">#discipline</span>
+            <span class="pill">#growth</span>
+            <span class="pill">#creative</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right reveal">
+        <div class="avatar" title="Foto/Avatar"></div>
+      </div>
+    </section>
+
+    <!-- TENTANG SAYA -->
+    <section id="tentang" class="reveal">
+      <h2 class="section-title">Tentang Saya</h2>
+      <p class="section-desc">Saya memiliki ketertarikan besar pada fotografi dan cinematografi. Sejak awal kelas 10, saya mulai mendalami dunia fotografi dan terus mengasah kemampuan saya dalam menangkap momen melalui lensa. Fotografi bagi saya bukan hanya sekadar hobi, tetapi juga cara untuk bercerita dan menyampaikan perasaan lewat gambar.
+
+Selain itu, saya juga menekuni bidang cinematography/ perfilman dengan bergabung dalam komunitas Roemah Tumbuh. Melalui komunitas ini, saya belajar banyak hal tentang dunia perfilman, mulai dari teknik pengambilan gambar, pengaturan cahaya, hingga bagaimana membangun alur cerita yang menarik.
+
+Bagi saya, fotografi dan cinematografi adalah dua bidang yang saling melengkapi: fotografi mengajarkan saya detail pada satu frame, sementara cinematografi memberi saya ruang untuk mengembangkan cerita dalam banyak frame.</p>
+      <div class="grid cols-3 stagger">
+        <article class="card" contenteditable="true">
+          <h3>Kepribadian</h3>
+          <p>Rasa ingin tahu tinggi, komunikatif, dan suka memecahkan masalah.</p>
+        </article>
+        <article class="card" contenteditable="true">
+          <h3>Keterampilan</h3>
+          <p>Desain, Front‑End, Fotografi, Editing Video, Public Speaking.</p>
+        </article>
+        <article class="card" contenteditable="true">
+          <h3>Sekolah</h3>
+          <p>SMKN 1 KOTA JAMBI</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SEKOLAH -->
+    <section id="sekolah" class="reveal">
+      <h2 class="section-title">Riwayat Sekolah</h2>
+      <p class="section-desc">SD-SMP-SMKN .</p>
+      <div class="card">
+        <div class="timeline">
+          <div class="item" contenteditable="true">
+            <div class="role">SMK <span class="sub">— 2024-Sekarang</span></div>
+            <div class="sub">Jurusan Desain Komunikasi Visual</div>
+            <p>Aktif di organisasi OSIS,dan Keanggotaan eskul DKV</p>
+          </div>
+          <div class="item" contenteditable="true">
+            <div class="role">SMP <span class="sub">— 2021-24</span></div>
+            <p>PRESTASI JUARA 3 LOMBA CERAMAH[CLASMEETING]</p>
+          </div>
+          <div class="item" contenteditable="true">
+            <div class="role">SD <span class="sub">— 2014–2020</span></div>
+            <p>Minat Di Dunia Digital</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFESI -->
+    <section id="profesi" class="reveal">
+      <h2 class="section-title">Mahasiswa</h2>
+      <p class="section-desc">Freelancer</p>
+      <div class="grid cols-3 stagger">
+        <article class="card" contenteditable="true">
+          <h3>UI/UX Desainer</h3>
+          <p>Merancang antarmuka ramah pengguna untuk aplikasi edukasi.</p>
+        </article>
+        <article class="card" contenteditable="true">
+          <h3>Fotografer</h3>
+          <p>Dokumentasi acara sekolah & komersial kecil, retouching, dan color grading.</p>
+        </article>
+        <article class="card" contenteditable="true">
+          <h3>Vidiography</h3>
+          <p>Dokumentasi sekolah</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section id="kontak" class="reveal">
+      <h2 class="section-title">Hubungi Saya</h2>
+      <div class="contact">
+        <form class="card" onsubmit="event.preventDefault(); fancyToast('Terima kasih! Pesanmu sudah tercatat.'); this.reset();">
+          <input class="input" placeholder="Nama" required>
+          <br>
+          <input class="input" placeholder="Email" type="email" required>
+          <br>
+          <textarea class="input" placeholder="Pesan" rows="5" required></textarea>
+          <br>
+          <button class="btn" type="submit">Kirim ✨</button>
+        </form>
+        <div class="card">
+          <h3>Info Kontak</h3>
+          <p>Email: <a class="link" href="mailto:kamu@email.com">arya2009@gmail.com</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> <span id="footerName">ayakaXGPT</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
